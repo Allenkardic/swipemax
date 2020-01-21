@@ -42,18 +42,47 @@ function SamplePrevArrow(props) {
 
 class CenterMode extends Component {
   render() {
-    const settings = {
-      className: "center",
-      centerMode: true,
+    var settings = {
+      dots: true,
       infinite: true,
-      centerPadding: "90px",
-      slidesToShow: 4,
       speed: 500,
+      autoplay: true,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      initialSlide: 0,
+      centerPadding: "90px",
       nextArrow: <SampleNextArrow />,
-      prevArrow: <SamplePrevArrow />
+      prevArrow: <SamplePrevArrow />,
+
+      responsive: [
+        {
+          breakpoint: 1024,
+          settings: {
+            slidesToShow: 3,
+            slidesToScroll: 3,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            initialSlide: 2
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          }
+        }
+      ]
     };
     return (
-      <div className="slider">
+      <div className="slick">
         <Slider {...settings}>
           <div className="slide-items">
             <div className="slide-items-contents"></div>
